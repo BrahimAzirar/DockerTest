@@ -1,0 +1,30 @@
+version: '2.21.0-desktop.1' # specify the docker compose version
+services: # specify here all the app services (fontent, backend, database ....)
+  node-app: # service name
+    container_name: cont # container name of a service
+    build: . # this ditermine the path of node serive for build the image
+    ports:
+      - "3500:3500"
+#    environment: # for passing envairoment variables to docker container
+#      - MESSAGE=Hello world!
+#      - FROM=docker-compose
+    env_file: # for paaing .env file to docker container
+      - ./.env # The path of .env file
+
+
+# for run the services containers: docker-compose up -d
+# for stop and remove the services containers: docker-compose down
+
+
+# docker tag <image name> <dockerhub username>/<create name of tag>
+# this comand for creating tag before pushing an image to dockerhub repo
+
+# docker push <dockerhub username>/<name of tag>
+# this coamnd for pushing an image after creating his tag
+
+# docker pull brahim2002azirar/first-tag:latest
+# for pull an image from docker hub
+
+
+
+# docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d
